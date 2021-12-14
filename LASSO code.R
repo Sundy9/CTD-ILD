@@ -51,7 +51,7 @@ Uni_cox$HR.CI95<-paste0(Uni_cox$HR," (",Uni_cox$CI5,'-',Uni_cox$CI95,")");Uni_co
 
 
 
-Multivariable  Cox regression
+# Multivariable  Cox regression
 library(survival)
 mul_cox<-coxph(Surv(time,status==1)~
                  age+RA+Immunosuppressive.agents+DLCO+RVD+RAA+PASP+LVEF+CRP+BNP+AST+GGT+ALB+Honeycombing,
