@@ -2,7 +2,7 @@ rm(list = ls())
 
 # multiply-imputed by chained equations
 library(readxl)
-data1 <- read_excel("C:/Users/Administrator/Desktop/original_data1.xlsx")
+data1 <- read_excel("./data/original_data1.xlsx")
 library(lattice)
 library(MASS)
 library(mice)
@@ -12,7 +12,7 @@ result=complete(imp,action=3)
 
 
 # LASSO and a ten-fold cross validation
-data <- read_excel("C:/Users/Administrator/Desktop/data.xlsx")
+data <- read_excel("./data/data.xlsx")
 library(Matrix)
 library(glmnet)
 library(survival)
@@ -94,7 +94,7 @@ nomo_2a<-nomogram(cox_nomo1, fun=list(surv1,surv2), lp=F,funlabel =c("3-year Dea
 plot(nomo_2a, col.grid=c("pink","cyan"),xfrac = 0.3,cex.var = 1,cex.axis = 1,lmgp = 0.3)
 
 
-Harrell¡¯s C index
+HarrellÂ¡Â¯s C index
 data$p_lp <- predict(cox_nomo1, data, type="lp")
 c_harrell_nomogram <- (cph(Surv(time,status)~p_lp, data=data,x=TRUE,y=TRUE)$stats["Dxy"]+1)/2
 c_harrell_nomogram
@@ -209,7 +209,7 @@ library(survival)
 library(ggplot2)
 library(ggpubr)
 library(survminer)
-A <- read_excel("C:/Users/Administrator/Desktop/A.xlsx")
+A <- read_excel("./data/A.xlsx")
 fit <- survfit(Surv(time,status)~1,data=A)
 res.sum <- surv_summary((fit))
 res.sum
