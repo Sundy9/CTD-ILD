@@ -1,16 +1,5 @@
 rm(list = ls())
 
-# multiply-imputed by chained equations
-library(readxl)
-data1 <- read_excel("./data/original_data1.xlsx")
-library(lattice)
-library(MASS)
-library(mice)
-imp =mice(data1,m=5)
-fit=with(imp,lm(status~time,data=data1))
-result=complete(imp,action=3)
-
-
 # LASSO and a ten-fold cross validation
 data <- read_excel("./data/data.xlsx")
 library(Matrix)
